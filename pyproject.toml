@@ -1,0 +1,73 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agent-margin-router"
+version = "0.2.0"
+description = "Official Python SDK for the Agent Margin Router API – one pay-per-call endpoint for web, market, on-chain, DeFi and developer data. Pay with USDC on Base via x402, or use an API key. 3 free calls per wallet."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{ name = "NovaNest" }]
+keywords = [
+    "agent-margin-router",
+    "x402",
+    "ai-agents",
+    "web-scraping",
+    "crypto",
+    "defi",
+    "onchain",
+    "api",
+    "usdc",
+    "base",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Internet :: WWW/HTTP",
+    "Typing :: Typed",
+]
+dependencies = [
+    "httpx>=0.24",
+]
+
+[project.optional-dependencies]
+autopay = [
+    "eth-account>=0.10",
+]
+dev = [
+    "pytest>=7",
+    "ruff>=0.1",
+    "build>=1.0",
+    "twine>=4.0",
+    "eth-account>=0.10",
+]
+
+[project.urls]
+Homepage = "https://agentmarginrouter.com"
+Documentation = "https://agentmarginrouter.com/docs"
+Repository = "https://github.com/AgentMarginRouter/agent-margin-router-python"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/agent_margin_router"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/agent_margin_router",
+    "README.md",
+    "LICENSE",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
